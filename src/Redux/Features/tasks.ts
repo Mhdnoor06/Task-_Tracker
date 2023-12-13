@@ -18,7 +18,7 @@ interface TaskState {
 // Initial state for the tasks slice
 const initialState: TaskState = {
   tasks: [],
-  selectedStatus: "List",
+  selectedStatus: "All",
 };
 
 // Create a slice for managing tasks state using Redux Toolkit

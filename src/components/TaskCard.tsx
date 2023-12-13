@@ -52,11 +52,8 @@ export default function TaskCard() {
       task.dueDate ? new Date(task.dueDate) : null
     );
 
-    if (selectedStatus === "List") {
-      return (
-        (task.status === "Not Started" || task.status === "Started") &&
-        (!taskDueDate || taskDueDate >= today)
-      );
+    if (selectedStatus === "All") {
+      return task;
     } else if (selectedStatus === "InProgress") {
       return (
         task.status === "Started" && (!taskDueDate || taskDueDate >= today)

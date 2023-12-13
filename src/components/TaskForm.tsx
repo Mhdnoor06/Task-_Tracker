@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DemoItem } from "@mui/x-date-pickers/internals/demo";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { Task, editTask, addTask } from "../Redux/Features/tasks";
 import { useAppDispatch } from "../Redux/store";
@@ -97,7 +98,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ setOpen, task }) => {
             </Typography>
 
             <form onSubmit={handleSubmit}>
-              <Grid container spacing={1}>
+              <Grid container spacing={3}>
                 <Grid xs={12} item>
                   <TextField
                     value={taskName}
@@ -112,16 +113,18 @@ const TaskForm: React.FC<TaskFormProps> = ({ setOpen, task }) => {
 
                 <Grid xs={12} item>
                   <LocalizationProvider dateAdapter={AdapterDayjs}>
-                    <DatePicker
-                      label="Due Date"
-                      value={dayjs(dueDate)}
-                      onChange={(newValue) =>
-                        setDueDate(newValue ? newValue.toDate() : null)
-                      }
-                      slotProps={{
-                        textField: { size: "small", margin: "dense" },
-                      }}
-                    />
+                    <DemoItem>
+                      <DatePicker
+                        label="Due Date"
+                        value={dayjs(dueDate)}
+                        onChange={(newValue) =>
+                          setDueDate(newValue ? newValue.toDate() : null)
+                        }
+                        slotProps={{
+                          textField: { size: "small", margin: "dense" },
+                        }}
+                      />
+                    </DemoItem>
                   </LocalizationProvider>
                 </Grid>
 

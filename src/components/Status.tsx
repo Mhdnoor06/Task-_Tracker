@@ -19,7 +19,7 @@ import { setSelectedStatus } from "../Redux/Features/tasks";
 
 const Status = () => {
   // Options for filtering tasks
-  const filterOptions = ["List", "InProgress", "Completed", "Overdue"];
+  const filterOptions = ["All", "InProgress", "Completed", "Overdue"];
 
   // Media query and theme setup
   const theme = useTheme();
@@ -73,14 +73,15 @@ const Status = () => {
           value={option}
           onClick={() => handleStatusChange(option)}
           sx={{
-            textDecoration: status === option ? "underline" : "none",
-            textDecorationColor:
-              status === option ? theme.palette.primary.main : "inherit",
-            textDecorationThickness: status === option ? "2px" : "auto",
+            backgroundColor:
+              status === option ? theme.palette.primary.main : "",
+            color: status === option ? "white" : "inherit",
+            borderRadius: "8px", // Adjust the value as needed
+
             "&:hover": {
-              textDecoration: "underline",
-              textDecorationColor: theme.palette.primary.main,
-              textDecorationThickness: "2px",
+              backgroundColor:
+                status === option ? theme.palette.primary.main : "#0000000a",
+              color: status === option ? "white" : "inherit",
             },
           }}
         >

@@ -19,7 +19,7 @@ export const store = configureStore({
   preloadedState: {
     tasks: {
       tasks: loadTasksFromLocalStorage(), // Load tasks from local storage
-      selectedStatus: "List",
+      selectedStatus: "All",
     },
   },
 });
