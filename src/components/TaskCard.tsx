@@ -189,7 +189,6 @@ export default function TaskCard() {
               </Card>
             </Grid>
           ))}
-          ``
         </Grid>
       </Box>
 
