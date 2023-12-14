@@ -10,6 +10,7 @@ import EditNoteIcon from "@mui/icons-material/EditNote";
 import { Stack } from "@mui/material";
 import PlayArrowRoundedIcon from "@mui/icons-material/PlayArrowRounded";
 import CheckIcon from "@mui/icons-material/Check";
+import PauseIcon from "@mui/icons-material/Pause";
 
 import { useAppDispatch, useAppSelector } from "../Redux/store";
 import { startTask, deleteTask, completedTask } from "../Redux/Features/tasks";
@@ -169,7 +170,11 @@ export default function TaskCard() {
                     pt={2}
                   >
                     <IconButton onClick={() => handleStartTask(task.id)}>
-                      <PlayArrowRoundedIcon />
+                      {task.status === "Started" ? (
+                        <PauseIcon />
+                      ) : (
+                        <PlayArrowRoundedIcon />
+                      )}
                     </IconButton>
 
                     <IconButton onClick={() => EditForm(task.id)}>

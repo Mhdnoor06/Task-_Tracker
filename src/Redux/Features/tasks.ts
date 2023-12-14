@@ -34,7 +34,12 @@ export const TaskSlice = createSlice({
     startTask: (state, action: PayloadAction<number>) => {
       const taskId = action.payload;
       state.tasks = state.tasks.map((task) =>
-        task.id === taskId ? { ...task, status: "Started" } : task
+        task.id === taskId
+          ? {
+              ...task,
+              status: task.status === "Started" ? "Not Started" : "Started",
+            }
+          : task
       );
     },
     // Reducer function to update the status of a task to "Completed"
